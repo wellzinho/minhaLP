@@ -1,70 +1,27 @@
-import { Link } from 'react-router-dom'
-import { ArrowLeft, BookOpen, Layers, Link2, Mail, Network, Sparkles, Target, Users } from 'lucide-react'
-import { BorderBeam } from '@/components/magicui/border-beam'
-import { FlickeringGrid } from '@/components/magicui/flickering-grid'
+import { BookOpen, Layers, Link2, Mail, Network, Sparkles, Target, Users } from 'lucide-react'
+import { CaseStudyShell } from '@/components/case/CaseStudyShell'
+import { caseStudy } from '@/styles/editorial'
 
-/** Conteúdo editorial: ~800–1000px, centralizado; texto alinhado à esquerda */
-const shell = 'mx-auto w-full max-w-[56rem] text-left'
-
-/** Corpo: sans limpa, cinza (não preto), entrelinha 1.6 */
-const body = 'text-[1rem] leading-[1.6] text-typography-secondary'
-
-/** H1: grande, bold, pouca entrelinha */
-const h1 = 'text-4xl font-bold tracking-tight text-typography-primary md:text-5xl md:leading-[1.05]'
-
-/** Subtítulos de seção (H2): médio-grande, bold; espaço acima vem do fluxo entre seções */
-const sectionH2 = 'text-xl font-bold tracking-tight text-typography-primary md:text-2xl scroll-mt-24'
-
-/** H3 em blocos (ex.: intro em duas colunas) */
-const blockH3 = 'text-lg font-bold tracking-tight text-typography-primary md:text-xl'
-
-/** Listas: bullets discretos, espaçamento entre itens */
-const listBase = 'list-disc space-y-3 pl-5 marker:text-zinc-500/90 [li]:pl-1'
-
-/** Ícones menores alinhados ao texto */
-const icon = 'h-5 w-5 shrink-0 text-accent-cyan-bright'
-
-/** Destaque técnico para Service Blueprint */
-const blueprintHighlight =
-  'relative overflow-hidden rounded-xl border border-accent-cyan/30 bg-accent-cyan/5 px-5 py-4 shadow-[0_0_0_1px_rgba(34,211,238,0.08)]'
-
-/** Placeholders de imagem: largura do container, cantos, sombra sutil */
-const mediaFrame =
-  'relative w-full overflow-hidden rounded-xl border border-white/[0.08] bg-cimento-queimado/40 shadow-[0_18px_48px_-12px_rgba(0,0,0,0.55)]'
-
-/** Respiro vertical entre seções de texto / mídia */
-const sectionGap = 'mb-16 md:mb-24'
-const blockGap = 'mb-10 md:mb-14'
+const icon = 'h-5 w-5 shrink-0 text-white/80'
 const resultIconWrap =
-  'flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-accent-cyan/25 bg-accent-cyan/[0.07] text-accent-cyan shadow-[0_0_24px_-8px_rgba(34,211,238,0.35)]'
+  'flex h-11 w-11 shrink-0 items-center justify-center border border-white/15 text-white/80'
+const blueprintHighlight =
+  'relative overflow-hidden border border-white/15 bg-white/[0.03] px-5 py-4'
+
+const body = caseStudy.body
+const h1 = caseStudy.heroTitle
+const sectionH2 = caseStudy.sectionH2
+const blockH3 = caseStudy.blockH3
+const listBase = caseStudy.listBase
+const mediaFrame = caseStudy.mediaFrame
+const sectionGap = caseStudy.sectionGap
+const blockGap = caseStudy.blockGap
+const caseLink = caseStudy.link
 
 export default function CaseStudyAcionamentoSeguro() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-page-primary grid-bg">
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <FlickeringGrid
-          className="h-full w-full opacity-[0.12]"
-          squareSize={5}
-          gridGap={7}
-          color="#525252"
-          maxOpacity={0.32}
-          flickerChance={0.1}
-        />
-      </div>
-      <div className="pointer-events-none fixed inset-0 z-[1] bg-gradient-to-b from-page-primary/85 via-transparent to-page-primary/92" />
-
-      <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-background/75 backdrop-blur-[12px]">
-        <div className={`flex h-20 items-center justify-between px-6 md:px-8 ${shell}`}>
-          <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-typography-secondary transition-colors hover:text-accent-cyan">
-            <ArrowLeft className="h-4 w-4" aria-hidden />
-            Voltar ao portfólio
-          </Link>
-          <span className="text-label font-semibold uppercase tracking-wider text-typography-secondary/80">Caso de estudo</span>
-        </div>
-      </header>
-
-      <article className="relative z-10 px-6 pb-24 pt-12 md:px-8 md:pb-32 md:pt-16">
-        <div className={shell}>
+    <CaseStudyShell>
+      <div>
           {/* 1. Título */}
           <h1 id="titulo-acionar-seguro" className={`${h1} ${blockGap}`}>
             <span className="inline-flex items-center gap-3">
@@ -110,16 +67,7 @@ export default function CaseStudyAcionamentoSeguro() {
               loading="lazy"
               decoding="async"
             />
-            <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-            <BorderBeam
-              size={300}
-              duration={15}
-              className="z-10"
-              delay={7.5}
-              borderWidth={2}
-              colorFrom="#22c55e"
-              colorTo="#fde047"
-            />
+
           </div>
 
           {/* 4. Exploração */}
@@ -130,9 +78,9 @@ export default function CaseStudyAcionamentoSeguro() {
 
             <ul className={`${listBase} ${body}`}>
               <li>
-                <strong className="font-bold text-typography-primary">
+                <strong className="font-semibold text-white">
                   <span className="inline-flex items-center gap-3">
-                    <Target className="h-5 w-5 text-accent-cyan-bright" aria-hidden />
+                    <Target className="h-5 w-5 text-white" aria-hidden />
                     Matriz CSD (Workshop Colaborativo):
                   </span>
                 </strong>{' '}
@@ -141,16 +89,16 @@ export default function CaseStudyAcionamentoSeguro() {
                   href="https://www.figma.com/design/naf54O8h6e4FNH1ZUqgEun/Meutudo?node-id=0-1&t=wL4URfiLFvCzYHOA-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-accent-cyan underline decoration-white/20 underline-offset-2 transition-colors hover:text-accent-cyan-bright hover:decoration-accent-cyan/60"
+                  className={caseLink}
                 >
                   Ver detalhes
                 </a>
               </li>
               <li>
                 <div className={blueprintHighlight}>
-                  <strong className="font-bold text-typography-primary">
+                  <strong className="font-semibold text-white">
                     <span className="inline-flex items-center gap-3">
-                      <Network className="h-5 w-5 text-accent-cyan-bright" aria-hidden />
+                      <Network className="h-5 w-5 text-white" aria-hidden />
                       Service Blueprint:
                     </span>
                   </strong>
@@ -166,7 +114,7 @@ export default function CaseStudyAcionamentoSeguro() {
                       href="https://www.figma.com/design/naf54O8h6e4FNH1ZUqgEun/Meutudo?node-id=2-4446&t=wL4URfiLFvCzYHOA-1"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-accent-cyan underline decoration-white/20 underline-offset-2 transition-colors hover:text-accent-cyan-bright hover:decoration-accent-cyan/60"
+                      className={caseLink}
                     >
                       Ver blueprint
                     </a>
@@ -184,16 +132,7 @@ export default function CaseStudyAcionamentoSeguro() {
               loading="lazy"
               decoding="async"
             />
-            <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-            <BorderBeam
-              size={300}
-              duration={15}
-              className="z-10"
-              delay={7.5}
-              borderWidth={2}
-              colorFrom="#22c55e"
-              colorTo="#fde047"
-            />
+
           </figure>
 
           {/* 5. Solução proposta */}
@@ -203,9 +142,9 @@ export default function CaseStudyAcionamentoSeguro() {
             </h2>
             <ul className={`${listBase} ${body}`}>
               <li>
-                <strong className="font-bold text-typography-primary">
+                <strong className="font-semibold text-white">
                   <span className="inline-flex items-center gap-3">
-                    <Layers className="h-5 w-5 text-accent-cyan-bright" aria-hidden />
+                    <Layers className="h-5 w-5 text-white" aria-hidden />
                     Fluxo e User Flow:
                   </span>
                 </strong>{' '}
@@ -214,15 +153,15 @@ export default function CaseStudyAcionamentoSeguro() {
                   href="https://www.figma.com/design/naf54O8h6e4FNH1ZUqgEun/Meutudo?node-id=2-5488&t=wL4URfiLFvCzYHOA-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-accent-cyan underline decoration-white/20 underline-offset-2 transition-colors hover:text-accent-cyan-bright hover:decoration-accent-cyan/60"
+                  className={caseLink}
                 >
                   Ver userflow
                 </a>
               </li>
               <li>
-                <strong className="font-bold text-typography-primary">
+                <strong className="font-semibold text-white">
                   <span className="inline-flex items-center gap-3">
-                    <Sparkles className="h-5 w-5 text-accent-cyan-bright" aria-hidden />
+                    <Sparkles className="h-5 w-5 text-white" aria-hidden />
                     Aceleração com IA:
                   </span>
                 </strong>{' '}
@@ -231,7 +170,7 @@ export default function CaseStudyAcionamentoSeguro() {
                   href="https://www.figma.com/design/naf54O8h6e4FNH1ZUqgEun/Meutudo?node-id=2-17740&t=wL4URfiLFvCzYHOA-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-accent-cyan underline decoration-white/20 underline-offset-2 transition-colors hover:text-accent-cyan-bright hover:decoration-accent-cyan/60"
+                  className={caseLink}
                 >
                   prototipação
                 </a>{' '}
@@ -240,7 +179,7 @@ export default function CaseStudyAcionamentoSeguro() {
                   href="https://www.figma.com/design/naf54O8h6e4FNH1ZUqgEun/Meutudo?node-id=2-6602&t=wL4URfiLFvCzYHOA-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-accent-cyan underline decoration-white/20 underline-offset-2 transition-colors hover:text-accent-cyan-bright hover:decoration-accent-cyan/60"
+                  className={caseLink}
                 >
                   benchmarking
                 </a>
@@ -256,27 +195,27 @@ export default function CaseStudyAcionamentoSeguro() {
             <ul className={`${listBase} ${body}`}>
               <li>
                 <span className="mr-2 inline-flex align-top">
-                  <Link2 className="h-5 w-5 text-accent-cyan-bright" aria-hidden />
+                  <Link2 className="h-5 w-5 text-white" aria-hidden />
                 </span>
-                <strong className="font-bold text-typography-primary">Integração App e ERP:</strong> Desenvolvimento de uma interface onde o usuário centraliza o envio de documentos, que são processados por analistas internos através do ERP, garantindo que o cliente não precise contatar a seguradora externa.
+                <strong className="font-semibold text-white">Integração App e ERP:</strong> Desenvolvimento de uma interface onde o usuário centraliza o envio de documentos, que são processados por analistas internos através do ERP, garantindo que o cliente não precise contatar a seguradora externa.
               </li>
               <li>
                 <span className="mr-2 inline-flex align-top">
-                  <Mail className="h-5 w-5 text-accent-cyan-bright" aria-hidden />
+                  <Mail className="h-5 w-5 text-white" aria-hidden />
                 </span>
-                <strong className="font-bold text-typography-primary">Estratégia de Comunicação Híbrida:</strong> Criação de componentes informativos específicos para clientes com apólices na Icatu, deixando claro que o status e a solicitação de novos documentos seriam feitos via e-mail, mitigando a fricção de não termos uma atualização em tempo real via API.
+                <strong className="font-semibold text-white">Estratégia de Comunicação Híbrida:</strong> Criação de componentes informativos específicos para clientes com apólices na Icatu, deixando claro que o status e a solicitação de novos documentos seriam feitos via e-mail, mitigando a fricção de não termos uma atualização em tempo real via API.
               </li>
               <li>
                 <span className="mr-2 inline-flex align-top">
-                  <Layers className="h-5 w-5 text-accent-cyan-bright" aria-hidden />
+                  <Layers className="h-5 w-5 text-white" aria-hidden />
                 </span>
-                <strong className="font-bold text-typography-primary">Jornada Unificada de Certificados:</strong> Solução de design que trata de forma transparente a existência de múltiplos certificados (meutudo e Icatu), permitindo que o usuário tenha uma experiência única de seguros dentro do app.
+                <strong className="font-semibold text-white">Jornada Unificada de Certificados:</strong> Solução de design que trata de forma transparente a existência de múltiplos certificados (meutudo e Icatu), permitindo que o usuário tenha uma experiência única de seguros dentro do app.
               </li>
               <li>
                 <span className="mr-2 inline-flex align-top">
-                  <BookOpen className="h-5 w-5 text-accent-cyan-bright" aria-hidden />
+                  <BookOpen className="h-5 w-5 text-white" aria-hidden />
                 </span>
-                <strong className="font-bold text-typography-primary">Education:</strong> Criação de uma seção de education para deixar claro ao usuário documentos necessário, tempo de análise, parceria Icatu e etc.
+                <strong className="font-semibold text-white">Education:</strong> Criação de uma seção de education para deixar claro ao usuário documentos necessário, tempo de análise, parceria Icatu e etc.
               </li>
             </ul>
           </section>
@@ -290,16 +229,7 @@ export default function CaseStudyAcionamentoSeguro() {
               loading="lazy"
               decoding="async"
             />
-            <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-            <BorderBeam
-              size={300}
-              duration={15}
-              className="z-10"
-              delay={7.5}
-              borderWidth={2}
-              colorFrom="#22c55e"
-              colorTo="#fde047"
-            />
+
           </figure>
 
           <div className={`mb-20 grid grid-cols-1 gap-6 md:mb-28 md:grid-cols-2 md:gap-8`}>
@@ -311,16 +241,7 @@ export default function CaseStudyAcionamentoSeguro() {
                 loading="lazy"
                 decoding="async"
               />
-              <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-              <BorderBeam
-                size={300}
-                duration={15}
-                className="z-10"
-                delay={7.5}
-                borderWidth={2}
-                colorFrom="#22c55e"
-                colorTo="#fde047"
-              />
+
             </figure>
             <figure id="case-acionamento-placeholder-05" className={`${mediaFrame} h-[220px] min-h-0 md:h-[280px]`}>
               <img
@@ -330,16 +251,7 @@ export default function CaseStudyAcionamentoSeguro() {
                 loading="lazy"
                 decoding="async"
               />
-              <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-              <BorderBeam
-                size={300}
-                duration={15}
-                className="z-10"
-                delay={7.5}
-                borderWidth={2}
-                colorFrom="#22c55e"
-                colorTo="#fde047"
-              />
+
             </figure>
           </div>
 
@@ -350,21 +262,21 @@ export default function CaseStudyAcionamentoSeguro() {
             </h2>
             <ul className={`${listBase} ${body}`}>
               <li>
-                <strong className="font-bold text-typography-primary">Validação de Hipóteses:</strong> Realizei testes de usabilidade via Maze (10 usuários) que confirmaram a clareza da jornada "zero a um", provando que o fluxo longo era compensado pela segurança e transparência das informações.{' '}
+                <strong className="font-semibold text-white">Validação de Hipóteses:</strong> Realizei testes de usabilidade via Maze (10 usuários) que confirmaram a clareza da jornada "zero a um", provando que o fluxo longo era compensado pela segurança e transparência das informações.{' '}
                 <a
                   href="https://app.maze.co/report/Perda-de-renda-CLT/1jyav7mlv9jvcw/intro"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-accent-cyan underline decoration-white/20 underline-offset-2 transition-colors hover:text-accent-cyan-bright hover:decoration-accent-cyan/60"
+                  className={caseLink}
                 >
                   Ver teste
                 </a>
               </li>
               <li>
-                <strong className="font-bold text-typography-primary">Eficiência e Design System:</strong> Entrega de uma jornada 100% aderente ao regulatório, construída com componentes do Design System, o que garantiu velocidade de implementação e consistência visual.
+                <strong className="font-semibold text-white">Eficiência e Design System:</strong> Entrega de uma jornada 100% aderente ao regulatório, construída com componentes do Design System, o que garantiu velocidade de implementação e consistência visual.
               </li>
               <li>
-                <strong className="font-bold text-typography-primary">Cultura de Design e IA:</strong> Consolidei o uso de IA Generativa como ferramenta de produtividade no workflow e reforcei a importância de trazer o usuário para o centro das decisões através de testes, mesmo em ambientes complexos de seguros.
+                <strong className="font-semibold text-white">Cultura de Design e IA:</strong> Consolidei o uso de IA Generativa como ferramenta de produtividade no workflow e reforcei a importância de trazer o usuário para o centro das decisões através de testes, mesmo em ambientes complexos de seguros.
               </li>
             </ul>
           </section>
@@ -378,16 +290,7 @@ export default function CaseStudyAcionamentoSeguro() {
               loading="lazy"
               decoding="async"
             />
-            <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-            <BorderBeam
-              size={300}
-              duration={15}
-              className="z-10"
-              delay={7.5}
-              borderWidth={2}
-              colorFrom="#22c55e"
-              colorTo="#fde047"
-            />
+
           </figure>
 
           <section className={`${sectionGap} space-y-6`} aria-labelledby="metricas-heading-acionamento">
@@ -400,7 +303,7 @@ export default function CaseStudyAcionamentoSeguro() {
                   <Target className="h-5 w-5" strokeWidth={2} />
                 </span>
                 <div className="min-w-0 space-y-1.5">
-                  <p className={`${body} font-bold text-typography-primary`}>85% de Task Success Rate:</p>
+                  <p className={`${body} font-semibold text-white`}>85% de Task Success Rate:</p>
                   <p className={body}>
                     Indice de sucesso na conclusão da jornada self-service logo no primeiro acesso, validando a eficácia da arquitetura de informação em fluxos de alta complexidade.
                   </p>
@@ -411,7 +314,7 @@ export default function CaseStudyAcionamentoSeguro() {
                   <BookOpen className="h-5 w-5" strokeWidth={2} />
                 </span>
                 <div className="min-w-0 space-y-1.5">
-                  <p className={`${body} font-bold text-typography-primary`}>90% de Assertividade em Documentos:</p>
+                  <p className={`${body} font-semibold text-white`}>90% de Assertividade em Documentos:</p>
                   <p className={body}>
                     Evitando re-trabalho operacional devido à clareza na hierarquia da tela de anexos, garantindo o envio correto de documentos na primeira tentativa.
                   </p>
@@ -422,7 +325,7 @@ export default function CaseStudyAcionamentoSeguro() {
                   <Users className="h-5 w-5" strokeWidth={2} />
                 </span>
                 <div className="min-w-0 space-y-1.5">
-                  <p className={`${body} font-bold text-typography-primary`}>-15% de Overload no Suporte:</p>
+                  <p className={`${body} font-semibold text-white`}>-15% de Overload no Suporte:</p>
                   <p className={body}>
                     Redução direta no volume de chamados telefônicos para abertura de sinistros, provando a autonomia gerada pelo design intuitivo e empático
                   </p>
@@ -440,10 +343,7 @@ export default function CaseStudyAcionamentoSeguro() {
               Acionar Seguro traduziu burocracia em clareza, eu construi uma jornada nativa para perda de renda CLT, conectando front-stage e back-stage com um Service Blueprint que elimina fricções técnicas. Com Design System e IA no workflow, garantindo transparência, eficiência e confiança desde o primeiro documento até o acompanhamento do sinistro. Após as validar a jornada a mesma serviu como jornada core para replicar nas coberturas de invalidez por acidente, perda de renda PJ e morte acidental.
             </p>
           </section>
-        </div>
-      </article>
-
-      <footer className="relative z-10 border-t border-white/[0.08] py-12 md:py-16" aria-label="Rodapé" />
-    </div>
+      </div>
+    </CaseStudyShell>
   )
 }

@@ -31,3 +31,14 @@ export function scrollWindowToTop() {
   html.style.scrollBehavior = prevHtml
   body.style.scrollBehavior = prevBody
 }
+
+/** Volta ao topo da página (hero) — layout com seções sticky exige reset em todos os scroll containers. */
+export function scrollToHero() {
+  scrollWindowToTop()
+  requestAnimationFrame(() => {
+    requestAnimationFrame(scrollWindowToTop)
+  })
+  if (window.location.hash) {
+    window.history.replaceState(null, '', window.location.pathname || '/')
+  }
+}

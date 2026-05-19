@@ -1,61 +1,22 @@
-import { Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, BarChart3, Layers, Search, Sparkles, Target } from 'lucide-react'
-import { BorderBeam } from '@/components/magicui/border-beam'
-import { FlickeringGrid } from '@/components/magicui/flickering-grid'
-
-/** Conteúdo editorial: ~800–1000px, centralizado; texto alinhado à esquerda */
-const shell = 'mx-auto w-full max-w-[56rem] text-left'
-
-/** Corpo: sans limpa, cinza (não preto), entrelinha 1.6 */
-const body = 'text-[1rem] leading-[1.6] text-typography-secondary'
-
-/** H1: grande, bold, pouca entrelinha */
-const h1 = 'text-4xl font-bold tracking-tight text-typography-primary md:text-5xl md:leading-[1.05]'
-
-/** Subtítulos de seção (H2): médio-grande, bold; espaço acima vem do fluxo entre seções */
-const sectionH2 = 'text-xl font-bold tracking-tight text-typography-primary md:text-2xl scroll-mt-24'
-
-/** H3 em blocos (ex.: intro em duas colunas) */
-const blockH3 = 'text-lg font-bold tracking-tight text-typography-primary md:text-xl'
-
-/** Placeholders de imagem: largura do container, cantos, sombra sutil */
-const mediaFrame =
-  'relative w-full overflow-hidden rounded-xl border border-white/[0.08] bg-cimento-queimado/40 shadow-[0_18px_48px_-12px_rgba(0,0,0,0.55)]'
-
-/** Respiro vertical entre seções de texto / mídia */
-const sectionGap = 'mb-16 md:mb-24'
-const blockGap = 'mb-10 md:mb-14'
+import { ArrowRight, BarChart3, Layers, Search, Sparkles, Target } from 'lucide-react'
+import { CaseStudyShell } from '@/components/case/CaseStudyShell'
+import { caseStudy } from '@/styles/editorial'
 
 const resultIconWrap =
-  'flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-accent-cyan/25 bg-accent-cyan/[0.07] text-accent-cyan shadow-[0_0_24px_-8px_rgba(34,211,238,0.35)]'
+  'flex h-11 w-11 shrink-0 items-center justify-center border border-white/15 text-white/80'
+
+const body = caseStudy.body
+const h1 = caseStudy.heroTitle
+const sectionH2 = caseStudy.sectionH2
+const blockH3 = caseStudy.blockH3
+const mediaFrame = caseStudy.mediaFrame
+const sectionGap = caseStudy.sectionGap
+const blockGap = caseStudy.blockGap
 
 export default function CaseStudySubhomeSeguros() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-page-primary grid-bg">
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <FlickeringGrid
-          className="h-full w-full opacity-[0.12]"
-          squareSize={5}
-          gridGap={7}
-          color="#525252"
-          maxOpacity={0.32}
-          flickerChance={0.1}
-        />
-      </div>
-      <div className="pointer-events-none fixed inset-0 z-[1] bg-gradient-to-b from-page-primary/85 via-transparent to-page-primary/92" />
-
-      <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-background/75 backdrop-blur-[12px]">
-        <div className={`flex h-20 items-center justify-between px-6 md:px-8 ${shell}`}>
-          <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-typography-secondary transition-colors hover:text-accent-cyan">
-            <ArrowLeft className="h-4 w-4" aria-hidden />
-            Voltar ao portfólio
-          </Link>
-          <span className="text-label font-semibold uppercase tracking-wider text-typography-secondary/80">Caso de estudo</span>
-        </div>
-      </header>
-
-      <article className="relative z-10 px-6 pb-24 pt-12 md:px-8 md:pb-32 md:pt-16">
-        <div className={shell}>
+    <CaseStudyShell>
+      <div>
           {/* 1. Título */}
           <h1 id="titulo-subhome-seguros" className={`${h1} ${blockGap}`}>
             Redesign da Subhome de Seguros
@@ -93,16 +54,7 @@ export default function CaseStudySubhomeSeguros() {
               loading="lazy"
               decoding="async"
             />
-            <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-            <BorderBeam
-              size={300}
-              duration={15}
-              className="z-10"
-              delay={7.5}
-              borderWidth={2}
-              colorFrom="#22c55e"
-              colorTo="#fde047"
-            />
+
           </div>
 
           {/* 4. Desenvolvimento e Imersão */}
@@ -116,9 +68,9 @@ export default function CaseStudySubhomeSeguros() {
                   <BarChart3 className="h-5 w-5" strokeWidth={2} />
                 </span>
                 <div className="min-w-0 space-y-1.5">
-                  <p className={`${body} font-bold text-typography-primary`}>Diagnóstico de Dados</p>
+                  <p className={`${body} font-semibold text-white`}>Diagnóstico de Dados</p>
                   <p className={body}>
-                    Em colaboração com o time de Dados, identificamos que o comportamento primário dos usuários era buscar por <strong className="font-semibold text-typography-primary">acionamento de seguro</strong>, <strong className="font-semibold text-typography-primary">suporte</strong> e <strong className="font-semibold text-typography-primary">consulta de apólices</strong>. Transformamos esses insights em atalhos inteligentes na interface.
+                    Em colaboração com o time de Dados, identificamos que o comportamento primário dos usuários era buscar por <strong className="font-semibold text-white">acionamento de seguro</strong>, <strong className="font-semibold text-white">suporte</strong> e <strong className="font-semibold text-white">consulta de apólices</strong>. Transformamos esses insights em atalhos inteligentes na interface.
                   </p>
                 </div>
               </li>
@@ -127,9 +79,9 @@ export default function CaseStudySubhomeSeguros() {
                   <Search className="h-5 w-5" strokeWidth={2} />
                 </span>
                 <div className="min-w-0 space-y-1.5">
-                  <p className={`${body} font-bold text-typography-primary`}>Imersão em Research</p>
+                  <p className={`${body} font-semibold text-white`}>Imersão em Research</p>
                   <p className={body}>
-                    Mapeamos que a <strong className="font-semibold text-typography-primary">falta de padronização</strong> gerava desorientação. A maior dor era a dificuldade em localizar seguros contratados e a <strong className="font-semibold text-typography-primary">falta de clareza no fluxo de contratação</strong> de novos produtos, como o Seguro de Vida.
+                    Mapeamos que a <strong className="font-semibold text-white">falta de padronização</strong> gerava desorientação. A maior dor era a dificuldade em localizar seguros contratados e a <strong className="font-semibold text-white">falta de clareza no fluxo de contratação</strong> de novos produtos, como o Seguro de Vida.
                   </p>
                 </div>
               </li>
@@ -144,16 +96,7 @@ export default function CaseStudySubhomeSeguros() {
               loading="lazy"
               decoding="async"
             />
-            <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-            <BorderBeam
-              size={300}
-              duration={15}
-              className="z-10"
-              delay={7.5}
-              borderWidth={2}
-              colorFrom="#22c55e"
-              colorTo="#fde047"
-            />
+
           </figure>
 
           {/* 5. Prototipação e Refinamento */}
@@ -170,25 +113,25 @@ export default function CaseStudySubhomeSeguros() {
 
               <div className="space-y-5">
                 <section className="space-y-2">
-                  <h3 className={`${body} font-bold text-typography-primary`}>1. A Hero Vision: Proteção em Primeiro Lugar</h3>
+                  <h3 className={`${body} font-semibold text-white`}>1. A Hero Vision: Proteção em Primeiro Lugar</h3>
                   <p className={body}>
-                    No topo da hierarquia, estabeleci uma <em className="font-medium text-typography-primary">Hero Section</em> dinâmica. O objetivo foi dar visibilidade
+                    No topo da hierarquia, estabeleci uma <em className="font-medium text-white">Hero Section</em> dinâmica. O objetivo foi dar visibilidade
                     imediata aos seguros contratáveis de forma isolada, criando um ponto de entrada direto e sem distrações. Isso resolve a dor de quem busca uma solução
                     específica, removendo camadas de navegação.
                   </p>
                 </section>
 
                 <section className="space-y-2">
-                  <h3 className={`${body} font-bold text-typography-primary`}>2. Atalhos Estratégicos: Redução de Fricção</h3>
+                  <h3 className={`${body} font-semibold text-white`}>2. Atalhos Estratégicos: Redução de Fricção</h3>
                   <p className={body}>
                     Logo abaixo da Hero, posicionei os atalhos de gestão para reduzir a carga cognitiva (
-                    <em className="font-medium text-typography-primary">Cognitive Load</em>). O usuário que já é cliente não quer procurar como acionar o seguro: ele
+                    <em className="font-medium text-white">Cognitive Load</em>). O usuário que já é cliente não quer procurar como acionar o seguro: ele
                     precisa de acessibilidade imediata. A proximidade dos botões de gestão com a oferta principal reforça a sensação de controle sobre o produto.
                   </p>
                 </section>
 
                 <section className="space-y-2">
-                  <h3 className={`${body} font-bold text-typography-primary`}>3. O Gancho do Diferencial: A Prova Social do Sorteio</h3>
+                  <h3 className={`${body} font-semibold text-white`}>3. O Gancho do Diferencial: A Prova Social do Sorteio</h3>
                   <p className={body}>
                     Introduzi o card de Sorteios Mensais como elemento de quebra de padrão. Ele não é apenas um benefício; é um gatilho emocional que diferencia a meutudo.
                     do mercado tradicional e frio de seguros. Ao destacar o valor do prêmio e a proximidade do próximo sorteio, transformamos a manutenção do seguro em
@@ -197,19 +140,19 @@ export default function CaseStudySubhomeSeguros() {
                 </section>
 
                 <section className="space-y-2">
-                  <h3 className={`${body} font-bold text-typography-primary`}>4. Scroll Progressivo vs. Carga Cognitiva</h3>
+                  <h3 className={`${body} font-semibold text-white`}>4. Scroll Progressivo vs. Carga Cognitiva</h3>
                   <p className={body}>
                     Para novas ofertas, utilizei scroll vertical segmentado. Em vez de uma grade densa, os produtos aparecem de forma sequencial. Essa técnica de{' '}
-                    <em className="font-medium text-typography-primary">Progressive Disclosure</em> garante que o usuário processe uma oferta por vez, evita paralisia de
+                    <em className="font-medium text-white">Progressive Disclosure</em> garante que o usuário processe uma oferta por vez, evita paralisia de
                     escolha e mantém a interface mobile-first moderna e leve, alinhada aos padrões de players como Nubank.
                   </p>
                 </section>
 
                 <section className="space-y-2">
-                  <h3 className={`${body} font-bold text-typography-primary`}>5. Humanização e Branding</h3>
+                  <h3 className={`${body} font-semibold text-white`}>5. Humanização e Branding</h3>
                   <p className={body}>
                     O resultado final afasta a percepção de crédito consignado para um posicionamento de seguro e cuidado. A hierarquia de cores e o espaçamento generoso (
-                    <em className="font-medium text-typography-primary">whitespace</em>) foram calibrados para transmitir transparência e confiança, elementos fundamentais
+                    <em className="font-medium text-white">whitespace</em>) foram calibrados para transmitir transparência e confiança, elementos fundamentais
                     para conversão em produtos de proteção financeira.
                   </p>
                 </section>
@@ -220,7 +163,7 @@ export default function CaseStudySubhomeSeguros() {
                   href="https://www.figma.com/design/BDgOHsNn37XDhAhjH1ZKv3/nova-home?node-id=1-7964&t=2ZECJ7pFdpPocPgA-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-accent-cyan underline underline-offset-2 transition-colors hover:text-accent-cyan/80"
+                  className="font-medium text-white underline underline-offset-2 transition-colors hover:text-white/80"
                 >
                   Ver protótipo
                 </a>
@@ -231,7 +174,7 @@ export default function CaseStudySubhomeSeguros() {
           <section className="relative mb-20 overflow-hidden rounded-2xl border border-white/[0.08] bg-cimento-queimado/30 p-5 md:mb-28 md:p-8">
             <div className="relative z-10 grid grid-cols-1 items-start gap-8 md:grid-cols-[1fr_auto_1fr] md:gap-8">
               <div className="space-y-4">
-                <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-accent-cyan md:text-left">DE: Subhome de Seguros (Visual Antigo)</p>
+                <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white md:text-left">DE: Subhome de Seguros (Visual Antigo)</p>
                 <figure id="case-subhome-placeholder-04" className={`${mediaFrame} h-[220px] min-h-0 md:h-[280px]`}>
                   <img
 src="/novahome/imagem3.png"
@@ -240,30 +183,21 @@ src="/novahome/imagem3.png"
                     loading="lazy"
                     decoding="async"
                   />
-                  <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-                  <BorderBeam
-                    size={300}
-                    duration={15}
-                    className="z-10"
-                    delay={7.5}
-                    borderWidth={2}
-                    colorFrom="#22c55e"
-                    colorTo="#fde047"
-                  />
+
                 </figure>
               </div>
 
               <div className="mx-auto hidden h-full items-center md:flex" aria-hidden>
                 <div className="relative flex h-full min-h-[280px] items-center">
                   <span className="h-[72%] w-px bg-white/20" />
-                  <span className="absolute left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-page-primary/90 p-2 text-accent-cyan shadow-[0_0_22px_-8px_rgba(34,211,238,0.7)]">
+                  <span className="absolute left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-page-primary/90 p-2 text-white shadow-[0_0_22px_-8px_rgba(34,211,238,0.7)]">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-accent-cyan md:text-left">
+                <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white md:text-left">
                   PARA: Subhome de Seguros (Redesign Padronizado)
                 </p>
                 <figure id="case-subhome-placeholder-05" className={`${mediaFrame} h-[220px] min-h-0 md:h-[280px]`}>
@@ -274,16 +208,7 @@ src="/novahome/imagem4.png"
                     loading="lazy"
                     decoding="async"
                   />
-                  <BorderBeam size={300} duration={15} className="z-10" delay={0} colorFrom="#22c55e" colorTo="#fde047" />
-                  <BorderBeam
-                    size={300}
-                    duration={15}
-                    className="z-10"
-                    delay={7.5}
-                    borderWidth={2}
-                    colorFrom="#22c55e"
-                    colorTo="#fde047"
-                  />
+
                 </figure>
               </div>
             </div>
@@ -294,16 +219,7 @@ src="/novahome/imagem4.png"
             className={`relative overflow-hidden rounded-2xl border border-white/[0.12] bg-gradient-to-br from-cimento-queimado/50 via-page-primary/80 to-page-primary/95 p-8 shadow-[0_24px_64px_-16px_rgba(0,0,0,0.55)] md:p-10 lg:p-12 ${sectionGap}`}
             aria-labelledby="resultados-heading-subhome"
           >
-            <BorderBeam size={400} duration={18} className="z-[1] opacity-90" delay={0} colorFrom="#22d3ee" colorTo="#a855f7" />
-            <BorderBeam
-              size={400}
-              duration={18}
-              className="z-[1] opacity-90"
-              delay={9}
-              borderWidth={2}
-              colorFrom="#a855f7"
-              colorTo="#22d3ee"
-            />
+
             <div className="relative z-10">
               <h2 id="resultados-heading-subhome" className={`${sectionH2} mb-8 text-2xl md:text-3xl md:leading-tight`}>
                 Resultados
@@ -314,7 +230,7 @@ src="/novahome/imagem4.png"
                     <Layers className="h-5 w-5" strokeWidth={2} />
                   </span>
                   <div className="min-w-0 space-y-1.5">
-                    <p className={`${body} font-bold text-typography-primary`}>Padronização Sistêmica</p>
+                    <p className={`${body} font-semibold text-white`}>Padronização Sistêmica</p>
                     <p className={body}>
                       Implementação total do Design System, otimizando a manutenção e futuras escalas.
                     </p>
@@ -325,7 +241,7 @@ src="/novahome/imagem4.png"
                     <BarChart3 className="h-5 w-5" strokeWidth={2} />
                   </span>
                   <div className="min-w-0 space-y-1.5">
-                    <p className={`${body} font-bold text-typography-primary`}>Design Orientado a Dados</p>
+                    <p className={`${body} font-semibold text-white`}>Design Orientado a Dados</p>
                     <p className={body}>
                       Criação de atalhos baseados no comportamento real de uso, elevando o potencial de engajamento.
                     </p>
@@ -336,7 +252,7 @@ src="/novahome/imagem4.png"
                     <Sparkles className="h-5 w-5" strokeWidth={2} />
                   </span>
                   <div className="min-w-0 space-y-1.5">
-                    <p className={`${body} font-bold text-typography-primary`}>Inovação no Workflow</p>
+                    <p className={`${body} font-semibold text-white`}>Inovação no Workflow</p>
                     <p className={body}>
                       Aceleração do ciclo de design através de ferramentas de IA para geração de assets e protótipos.
                     </p>
@@ -347,7 +263,7 @@ src="/novahome/imagem4.png"
                     <Target className="h-5 w-5" strokeWidth={2} />
                   </span>
                   <div className="min-w-0 space-y-1.5">
-                    <p className={`${body} font-bold text-typography-primary`}>Foco em Conversão</p>
+                    <p className={`${body} font-semibold text-white`}>Foco em Conversão</p>
                     <p className={body}>
                       Estabelecimento de um storytelling visual claro que transformou a página em uma vitrine estratégica, dissociando-a da imagem de produtos de
                       crédito.
@@ -359,16 +275,16 @@ src="/novahome/imagem4.png"
                     <BarChart3 className="h-5 w-5" strokeWidth={2} />
                   </span>
                   <div className="min-w-0 space-y-1.5">
-                    <p className={`${body} font-bold text-typography-primary`}>Métricas de Impacto</p>
+                    <p className={`${body} font-semibold text-white`}>Métricas de Impacto</p>
                     <ul className={`${body} list-disc space-y-1 pl-5`}>
                       <li>
-                        <strong className="font-semibold text-typography-primary">+40% de Engajamento:</strong> Através da padronização de cards e aumento da escaneabilidade, elevamos a interação com ofertas secundárias que antes eram ignoradas.
+                        <strong className="font-semibold text-white">+40% de Engajamento:</strong> Através da padronização de cards e aumento da escaneabilidade, elevamos a interação com ofertas secundárias que antes eram ignoradas.
                       </li>
                       <li>
-                        <strong className="font-semibold text-typography-primary">+15% em Conversão Stand-alone:</strong> O destaque visual estratégico e a hierarquia clara na Hero Section impulsionaram a contratação direta de produtos isolados.
+                        <strong className="font-semibold text-white">+15% em Conversão Stand-alone:</strong> O destaque visual estratégico e a hierarquia clara na Hero Section impulsionaram a contratação direta de produtos isolados.
                       </li>
                       <li>
-                        <strong className="font-semibold text-typography-primary">-25% de Drop-off (Abandono):</strong> A redução da carga cognitiva e a padronização dos CTAs garantiram uma jornada fluida, mantendo o usuário no funil até a conclusão.
+                        <strong className="font-semibold text-white">-25% de Drop-off (Abandono):</strong> A redução da carga cognitiva e a padronização dos CTAs garantiram uma jornada fluida, mantendo o usuário no funil até a conclusão.
                       </li>
                     </ul>
                   </div>
@@ -377,10 +293,7 @@ src="/novahome/imagem4.png"
             </div>
           </section>
 
-        </div>
-      </article>
-
-      <footer className="relative z-10 border-t border-white/[0.08] py-12 md:py-16" aria-label="Rodapé" />
-    </div>
+      </div>
+    </CaseStudyShell>
   )
 }

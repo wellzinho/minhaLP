@@ -61,7 +61,8 @@ export default {
         },
         typography: {
           primary: "#FFFFFF",
-          secondary: "#A1A1AA",
+          secondary: "#d4d4d4",
+          muted: "#a3a3a3",
         },
         "border-subtle": "#1F1F23",
         "border-light": "rgba(255, 255, 255, 0.1)",
@@ -69,7 +70,8 @@ export default {
         "cimento-queimado-hover": "#252525",
       },
       fontFamily: {
-        sans: ["Inter", "Geist", "Plus Jakarta Sans", "system-ui", "sans-serif"],
+        sans: ["Archivo", "Inter", "system-ui", "sans-serif"],
+        archivo: ["Archivo", "system-ui", "sans-serif"],
         mono: ["ui-monospace", "Consolas", "monospace"],
       },
       fontSize: {
