@@ -228,7 +228,7 @@ function App() {
       <main className="relative">
         <HeroSection />
 
-        <div className="relative z-10">
+        <div className="relative z-10 isolate">
           <MetricsSection />
           <ProjectsGrid projects={featuredProjects} />
           <AboutSection />

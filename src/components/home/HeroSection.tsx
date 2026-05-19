@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Reveal } from '@/components/motion/Reveal'
-import { TextLink } from '@/components/layout/TextLink'
 import { editorial } from '@/styles/editorial'
 
 const navItems = [
@@ -16,20 +15,11 @@ const HERO_VIDEO_SRC = '/video/video2.mp4'
 export function HeroSection() {
   const spacerRef = useRef<HTMLDivElement>(null)
   const [videoReady, setVideoReady] = useState(false)
-  const [isDesktop, setIsDesktop] = useState(false)
   const { scrollYProgress } = useScroll({ target: spacerRef, offset: ['start start', 'end start'] })
   const mediaY = useTransform(scrollYProgress, [0, 1], ['0%', '24%'])
   const mediaScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.15])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const contentY = useTransform(scrollYProgress, [0, 0.5], [0, 80])
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 768px)')
-    const update = () => setIsDesktop(mediaQuery.matches)
-    update()
-    mediaQuery.addEventListener('change', update)
-    return () => mediaQuery.removeEventListener('change', update)
-  }, [])
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true)
@@ -39,7 +29,7 @@ export function HeroSection() {
     <>
       <section
         id="hero"
-        className="fixed inset-x-0 top-0 z-0 flex h-[100svh] min-h-[600px] flex-col overflow-hidden bg-black"
+        className="fixed inset-x-0 top-0 z-0 flex h-[100dvh] min-h-[600px] translate-z-0 flex-col justify-end overflow-hidden bg-black pb-12 pt-24 sm:pb-14 sm:pt-28 md:pb-20 md:pt-32"
       >
         <motion.div className="absolute inset-0" style={{ y: mediaY, scale: mediaScale }}>
           <video
@@ -61,8 +51,8 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end overflow-y-auto overscroll-y-contain px-6 pb-10 pt-24 [-webkit-overflow-scrolling:touch] md:overflow-visible md:px-10 md:pb-20 md:pt-32 lg:px-20"
-          style={isDesktop ? { opacity: contentOpacity, y: contentY } : undefined}
+          className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-20"
+          style={{ opacity: contentOpacity, y: contentY }}
         >
           <div className="max-w-[1200px] px-0 md:px-10">
             <Reveal duration={1}>
@@ -80,15 +70,9 @@ export function HeroSection() {
                 <p className="max-w-[480px] text-[15px] leading-[1.65] text-[#d4d4d4] md:text-[17px] md:leading-[1.8]">
                   Experiência em fintech, seguros e produtos digitais de alto impacto
                 </p>
-                <div className="mt-5 flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 md:mt-6">
-                  <TextLink href="#projects">Ver meus trabalhos</TextLink>
-                  <TextLink href="#experience" className="md:hidden">
-                    Experiência
-                  </TextLink>
-                </div>
               </Reveal>
 
-              <Reveal delay={0.25} className="hidden md:block">
+              <Reveal delay={0.25}>
                 <nav className="w-full max-w-[280px] md:ml-auto" aria-label="Navegação do hero">
                   <ul>
                     {navItems.map((item) => (
@@ -124,11 +108,7 @@ export function HeroSection() {
         </motion.div>
       </section>
 
-      <motion.div
-        ref={spacerRef}
-        className="h-[100svh] min-h-[600px] w-full shrink-0"
-        aria-hidden
-      />
+      <div ref={spacerRef} className="h-[100dvh] min-h-[600px] w-full shrink-0" aria-hidden />
     </>
   )
 }
