@@ -38,7 +38,7 @@ export const editorial = {
   section: 'py-[80px] md:py-[100px] lg:py-[120px]',
   sectionLabel: 'text-[12px] font-medium uppercase tracking-[0.12em]',
   heroTitle:
-    'text-[clamp(2.75rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-0.03em]',
+    'text-[clamp(1.625rem,7.2vw,2.5rem)] font-semibold leading-[1.12] tracking-[-0.03em] sm:text-[clamp(1.875rem,6vw,3rem)] sm:leading-[1.1] md:text-[clamp(2.75rem,6vw,5rem)] md:leading-[1.05]',
   sectionTitle: 'text-[clamp(2rem,4vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.02em]',
   body: 'text-[17px] leading-[1.8]',
   bodySm: 'text-[15px] leading-[1.65]',

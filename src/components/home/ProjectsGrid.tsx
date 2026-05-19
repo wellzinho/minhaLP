@@ -66,13 +66,7 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
       <Reveal>
         <SectionHeader
           number="03 — Portfólio"
-          title={
-            <>
-              Conheça alguns dos
-              <br />
-              nossos trabalhos
-            </>
-          }
+          title="Conheça alguns dos meus projetos"
           theme="dark"
           action={
             <a

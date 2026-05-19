@@ -30,7 +30,7 @@ export function HeroSection() {
     <>
     <section
       id="hero"
-      className="fixed inset-x-0 top-0 z-0 flex h-[100svh] min-h-[600px] flex-col justify-end overflow-hidden bg-black pb-16 pt-28 md:pb-20 md:pt-32"
+      className="relative z-0 flex min-h-[100svh] flex-col justify-end overflow-visible bg-black pb-12 pt-24 sm:pb-14 sm:pt-28 md:fixed md:inset-x-0 md:top-0 md:h-[100svh] md:min-h-[600px] md:overflow-hidden md:pb-20 md:pt-32"
     >
       <motion.div className="absolute inset-0" style={{ y: mediaY, scale: mediaScale }}>
         <video
@@ -58,24 +58,26 @@ export function HeroSection() {
         <div className="max-w-[1200px] px-0 md:px-10">
           <Reveal duration={1}>
             <p className={`${editorial.sectionLabel} text-white/60`}>01 — Introdução</p>
-            <p className={`mt-4 ${editorial.body} text-[#d4d4d4]`}>Senior Product Designer</p>
-            <h1 className={`mt-6 max-w-[1200px] text-white ${editorial.heroTitle}`}>
+            <p className="mt-3 text-[15px] leading-[1.65] text-[#d4d4d4] md:mt-4 md:text-[17px] md:leading-[1.8]">
+              Senior Product Designer
+            </p>
+            <h1 className={`mt-4 max-w-[1200px] text-white sm:mt-5 md:mt-6 ${editorial.heroTitle}`}>
               Product Designer focado em produtos complexos e decisões baseadas em dados
             </h1>
           </Reveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-10 md:mt-16 md:grid-cols-2 md:gap-16">
+          <div className="mt-8 grid grid-cols-1 gap-8 sm:mt-10 md:mt-16 md:grid-cols-2 md:gap-16">
             <Reveal delay={0.15}>
-              <p className={`max-w-[480px] ${editorial.body} text-[#d4d4d4]`}>
+              <p className="max-w-[480px] text-[15px] leading-[1.65] text-[#d4d4d4] md:text-[17px] md:leading-[1.8]">
                 Experiência em fintech, seguros e produtos digitais de alto impacto
               </p>
-              <div className="mt-6">
+              <div className="mt-5 md:mt-6">
                 <TextLink href="#projects">Ver meus trabalhos</TextLink>
               </div>
             </Reveal>
 
             <Reveal delay={0.25}>
-              <nav className="max-w-[280px] md:ml-auto">
+              <nav className="w-full max-w-[280px] md:ml-auto">
                 <ul>
                   {navItems.map((item) => (
                     <li key={item.href} className="border-t border-white/15">
@@ -96,7 +98,7 @@ export function HeroSection() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
@@ -111,7 +113,7 @@ export function HeroSection() {
     </section>
     <motion.div
       ref={spacerRef}
-      className="h-[100svh] min-h-[600px] w-full shrink-0"
+      className="hidden h-[100svh] min-h-[600px] w-full shrink-0 md:block"
       aria-hidden
     />
     </>
