@@ -129,6 +129,39 @@
   }
 }
 
+@keyframes companies-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.companies-marquee-viewport {
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+.companies-marquee-track {
+  animation: companies-marquee 32s linear infinite;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (min-width: 640px) {
+  .companies-marquee-track {
+    animation-duration: 48s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .companies-marquee-track {
+    animation: none;
+  }
+}
+
 /* Header nav — cores explícitas (evita conflito com cache / utilitários Tailwind) */
 .site-header-nav .site-header-nav-link {
   color: rgba(255, 255, 255, 0.6);

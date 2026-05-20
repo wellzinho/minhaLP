@@ -30,8 +30,9 @@ function MarqueeLogo({
         alt={ariaHidden ? '' : company.name}
         className="block w-auto shrink-0 object-contain object-center"
         style={{ height: LOGO_HEIGHT_PX }}
-        loading="lazy"
+        loading="eager"
         decoding="async"
+        fetchPriority="high"
         draggable={false}
       />
     </div>
@@ -67,8 +68,8 @@ export function CompaniesMarquee() {
       aria-label="Empresas e parceiros"
       className="relative z-[15] overflow-hidden bg-[#040607] py-12 sm:py-14 md:py-16 lg:py-20"
     >
-      <div className="overflow-hidden">
-        <div className="marquee-track flex w-max flex-nowrap items-center whitespace-nowrap">
+      <div className="companies-marquee-viewport overflow-hidden">
+        <div className="companies-marquee-track flex w-max flex-nowrap items-center whitespace-nowrap">
           <LogoSet setId="a" />
           <LogoSet setId="b" ariaHidden />
         </div>
