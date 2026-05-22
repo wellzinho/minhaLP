@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "python3 _lp-build/assemble.py && vite",
     "open:chrome": "open -a 'Google Chrome' 'http://127.0.0.1:5173/'",
-    "build": "tsc -b && vite build",
+    "build": "python3 _lp-build/assemble.py && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "python3 _lp-build/assemble.py && vite build && vite preview"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
