@@ -115,7 +115,13 @@
     var lenis = null;
 
     if (typeof Lenis !== 'undefined' && !reducedMotion) {
-      lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+      lenis = new Lenis({
+        lerp: 0.08,
+        smoothWheel: true,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        touchMultiplier: 1.2
+      });
       document.documentElement.classList.add('lenis', 'lenis-smooth');
 
       lenis.on('scroll', onScrollUI);
@@ -221,6 +227,29 @@
 
     ScrollTrigger.refresh();
   }
+
+  /* Bloqueia arraste horizontal acidental no mobile (overflow dos marquees/carrossel) */
+  var touchStartX = 0;
+  var touchStartY = 0;
+  document.addEventListener(
+    'touchstart',
+    function (e) {
+      if (e.touches.length !== 1) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    },
+    { passive: true }
+  );
+  document.addEventListener(
+    'touchmove',
+    function (e) {
+      if (e.touches.length !== 1) return;
+      var dx = Math.abs(e.touches[0].clientX - touchStartX);
+      var dy = Math.abs(e.touches[0].clientY - touchStartY);
+      if (dx > dy && dx > 8) e.preventDefault();
+    },
+    { passive: false }
+  );
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initMotion);
