@@ -357,6 +357,12 @@ ul{list-style:none}
   .about-photo img{object-position:center 15%}
   .footer-top{flex-direction:column;align-items:flex-start}
   .footer-follow{width:100%;margin-top:.5rem}
+  .testimonials-track-wrap{width:100%;margin-inline:auto}
+  .testimonial-card{box-sizing:border-box}
+  #contato .cta-inner{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;max-width:100%;padding:80px 6vw;box-sizing:border-box}
+  #contato .cta-inner h2,#contato .cta-inner .lead,#contato .cta-inner .price-micro{text-align:center;width:100%;max-width:100%;margin-left:auto;margin-right:auto}
+  #contato .cta-inner .lead{max-width:100%}
+  #contato .cta-inner .btn-primary.xl{align-self:center}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}

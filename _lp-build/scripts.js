@@ -66,6 +66,7 @@
   var prevBtn = document.getElementById('testPrev');
   var nextBtn = document.getElementById('testNext');
   if (track && dotsWrap) {
+    var wrap = track.parentElement;
     var cards = track.querySelectorAll('.testimonial-card');
     var index = 0;
     var max = cards.length;
@@ -76,13 +77,33 @@
       return 1;
     }
 
+    function getGap() {
+      var g = parseFloat(getComputedStyle(track).gap);
+      return isNaN(g) ? 20 : g;
+    }
+
     function updateCarousel() {
       var per = getPerView();
       var maxIndex = Math.max(0, max - per);
       if (index > maxIndex) index = maxIndex;
-      var gap = 20;
-      var cardW = cards[0].offsetWidth + gap;
-      track.style.transform = 'translateX(-' + index * cardW + 'px)';
+      var gap = getGap();
+      var slideW;
+      if (window.innerWidth < 768 && wrap) {
+        slideW = wrap.clientWidth;
+        cards.forEach(function (card) {
+          card.style.flex = '0 0 ' + slideW + 'px';
+          card.style.width = slideW + 'px';
+          card.style.maxWidth = slideW + 'px';
+        });
+      } else {
+        cards.forEach(function (card) {
+          card.style.flex = '';
+          card.style.width = '';
+          card.style.maxWidth = '';
+        });
+        slideW = cards[0].offsetWidth;
+      }
+      track.style.transform = 'translateX(-' + index * (slideW + gap) + 'px)';
       dotsWrap.querySelectorAll('button').forEach(function (d, i) {
         d.classList.toggle('is-active', i === index);
       });
