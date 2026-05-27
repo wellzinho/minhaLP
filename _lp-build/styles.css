@@ -182,9 +182,7 @@ ul{list-style:none}
 #processo .section-title{font-size:var(--text-3xl);color:var(--text-primary-light);margin:1rem 0 2.5rem}
 .process-wrap{position:relative;max-width:760px}
 .process-line-bg{position:absolute;left:0;top:0;width:1px;height:100%;background:var(--border-light2)}
-.process-line-grow{position:absolute;left:0;top:0;width:1px;height:0;background:var(--black)}
-.process-wrap.is-visible .process-line-grow{animation:growLine 1.5s ease-out forwards}
-@keyframes growLine{to{height:100%}}
+.process-line-grow{position:absolute;left:0;top:0;width:1px;height:0;background:var(--black);will-change:height}
 .process-step{padding:0 0 2.5rem 2rem;position:relative;border-radius:var(--radius-md)}
 .process-step:not(:last-child){border-bottom:1px solid var(--border-light);margin-bottom:2.5rem;padding-bottom:2.5rem}
 .step-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}

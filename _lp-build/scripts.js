@@ -30,20 +30,6 @@
     });
   }
 
-  /* === PROCESS LINE === */
-  var processWrap = document.getElementById('processWrap');
-  if (processWrap && 'IntersectionObserver' in window) {
-    var procObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          procObs.disconnect();
-        }
-      });
-    }, { threshold: 0.25 });
-    procObs.observe(processWrap);
-  }
-
   /* === FAQ === */
   document.querySelectorAll('.faq-q').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -169,11 +155,29 @@
       document.querySelectorAll('.reveal, .hero-line').forEach(function (el) {
         el.style.opacity = '1';
       });
+      var lineGrowFallback = document.querySelector('.process-line-grow');
+      if (lineGrowFallback) lineGrowFallback.style.height = '100%';
       return;
     }
 
     if (typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
+    }
+
+    var processWrap = document.getElementById('processWrap');
+    var lineGrow = processWrap && processWrap.querySelector('.process-line-grow');
+    if (processWrap && lineGrow && typeof ScrollTrigger !== 'undefined') {
+      gsap.set(lineGrow, { height: '0%' });
+      gsap.to(lineGrow, {
+        height: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: processWrap,
+          start: 'top 78%',
+          end: 'bottom 55%',
+          scrub: 0.35
+        }
+      });
     }
 
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });

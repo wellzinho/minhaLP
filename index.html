@@ -221,9 +221,7 @@ ul{list-style:none}
 #processo .section-title{font-size:var(--text-3xl);color:var(--text-primary-light);margin:1rem 0 2.5rem}
 .process-wrap{position:relative;max-width:760px}
 .process-line-bg{position:absolute;left:0;top:0;width:1px;height:100%;background:var(--border-light2)}
-.process-line-grow{position:absolute;left:0;top:0;width:1px;height:0;background:var(--black)}
-.process-wrap.is-visible .process-line-grow{animation:growLine 1.5s ease-out forwards}
-@keyframes growLine{to{height:100%}}
+.process-line-grow{position:absolute;left:0;top:0;width:1px;height:0;background:var(--black);will-change:height}
 .process-step{padding:0 0 2.5rem 2rem;position:relative;border-radius:var(--radius-md)}
 .process-step:not(:last-child){border-bottom:1px solid var(--border-light);margin-bottom:2.5rem;padding-bottom:2.5rem}
 .step-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
@@ -585,22 +583,22 @@ ul{list-style:none}
     <div class="section-inner">
       <h2 class="section-title reveal">Conheça alguns<br />projetos.</h2>
       <div class="projects-masonry">
-        <a href="https://wa.me/5541997643618?text=Quero%20ver%20projeto%20de%20est%C3%A9tica" class="project-item reveal" target="_blank" rel="noopener">
+        <div class="project-item reveal">
           <img src="/prova/estetica.png" alt="Projeto landing page estética" loading="lazy" />
           <div class="project-overlay"><div class="project-meta"><span class="project-tag">Estética</span><h3>LP Estética Avançada</h3><p class="project-result">52 leads em 30 dias</p></div></div>
-        </a>
-        <a href="https://wa.me/5541997643618?text=Quero%20ver%20projeto%20de%20mastologista" class="project-item reveal" target="_blank" rel="noopener">
+        </div>
+        <div class="project-item reveal">
           <img src="/prova/medicina.png" alt="Projeto landing page mastologista" loading="lazy" />
           <div class="project-overlay"><div class="project-meta"><span class="project-tag">Saúde</span><h3>LP Mastologista</h3><p class="project-result">28 consultas em 21 dias</p></div></div>
-        </a>
-        <a href="https://wa.me/5541997643618?text=Quero%20ver%20projeto%20de%20advocacia" class="project-item reveal" target="_blank" rel="noopener">
+        </div>
+        <div class="project-item reveal">
           <img src="/prova/advocacia.png" alt="Projeto landing page advocacia" loading="lazy" />
           <div class="project-overlay"><div class="project-meta"><span class="project-tag">Advocacia</span><h3>LP Advocacia Trabalhista</h3><p class="project-result">43 agendamentos em 30 dias</p></div></div>
-        </a>
-        <a href="https://wa.me/5541997643618?text=Quero%20ver%20projeto%20de%20energia%20solar" class="project-item reveal" target="_blank" rel="noopener">
+        </div>
+        <div class="project-item reveal">
           <img src="/prova/Painel.png" alt="Projeto landing page energia solar" loading="lazy" />
           <div class="project-overlay"><div class="project-meta"><span class="project-tag">Energia Solar</span><h3>LP Energia Solar Residencial</h3><p class="project-result">67 formulários em 45 dias</p></div></div>
-        </a>
+        </div>
       </div>
       <div class="portfolio-cta reveal">
         <p>Quer ver o seu aqui?</p>
@@ -688,34 +686,22 @@ ul{list-style:none}
       <div class="testimonials-track-wrap reveal">
         <div class="testimonials-track" id="testimonialsTrack">
           <article class="testimonial-card">
-            <!-- [DEPOIMENTO_1] -->
             <div class="testimonial-top">
-              <img src="/wiconfav.jpeg" alt="Dr. Ricardo M." width="48" height="48" loading="lazy" />
-              <div><strong>Dr. Ricardo M.</strong><span>Advogado trabalhista · Curitiba/PR</span></div>
+              <div><strong>Elton Ferreira</strong><span>Gerente de Operações · Banco BV</span></div>
             </div>
-            <span class="testimonial-tag">Advocacia</span>
-            <p class="testimonial-quote">« A página passou autoridade desde o primeiro dia. Em duas semanas já tinha consultas agendadas pelo site. »</p>
-            <span class="testimonial-result">32 leads em 15 dias</span>
+            <p class="testimonial-quote">O Wellington tem o poder de transformar temas complexos em experiências simples e intuitivas, sempre focado nos objetivos do produto. Excelente profissional, proativo e altamente colaborativo.</p>
           </article>
           <article class="testimonial-card">
-            <!-- [DEPOIMENTO_2] -->
             <div class="testimonial-top">
-              <img src="/imagemMedico/medicacapa.png" alt="Dra. Ana Paula S." width="48" height="48" loading="lazy" />
-              <div><strong>Dra. Ana Paula S.</strong><span>Psicóloga clínica · Curitiba/PR</span></div>
+              <div><strong>Antonio Salgado</strong><span>UX Manager &amp; Especialista NN/g</span></div>
             </div>
-            <span class="testimonial-tag">Saúde</span>
-            <p class="testimonial-quote">« Parei de depender só de indicação. A landing transmite o acolhimento que busco na consulta. »</p>
-            <span class="testimonial-result">28 consultas em 21 dias</span>
+            <p class="testimonial-quote">Uma das pessoas mais proativas com quem já trabalhei. O Wellington faz as coisas acontecerem. Ele possui uma habilidade rara e valiosa em Arquitetura da Informação, além de uma comunicação impecável em equipe.</p>
           </article>
           <article class="testimonial-card">
-            <!-- [DEPOIMENTO_3] -->
             <div class="testimonial-top">
-              <img src="/imagemhome/imagem22.png" alt="Camila R." width="48" height="48" loading="lazy" />
-              <div><strong>Camila R.</strong><span>Esteticista · São José dos Pinhais/PR</span></div>
+              <div><strong>Lianara Honorato</strong><span>Product Manager</span></div>
             </div>
-            <span class="testimonial-tag">Estética</span>
-            <p class="testimonial-quote">« Meu portfólio finalmente vende antes da primeira conversa. Agendamentos triplicaram. »</p>
-            <span class="testimonial-result">52 leads em 30 dias</span>
+            <p class="testimonial-quote">Mesmo lidando com a alta complexidade do mercado de banking, o Wellington sempre mergulha de cabeça no negócio para construir a melhor jornada possível para o cliente. Totalmente dedicado e talentoso.</p>
           </article>
         </div>
         <div class="testimonial-nav">
@@ -744,7 +730,7 @@ ul{list-style:none}
           <li>✓ Formulário integrado ao WhatsApp</li>
           <li>✓ Entrega em 7 dias úteis</li>
         </ul>
-        <a href="https://wa.me/5541997643618?text=Quero%20um%20or%C3%A7amento%20gr%C3%A1tis" class="btn-primary lg" target="_blank" rel="noopener">Quero um orçamento grátis →</a>
+        <a href="https://wa.me/5541997643618?text=Quero%20um%20or%C3%A7amento%20gr%C3%A1tis" class="btn-primary lg" target="_blank" rel="noopener">Quero um orçamento</a>
         <p class="price-micro">Resposta em até 2h em dias úteis · Sem compromisso</p>
         <div class="price-urgency">
           <span class="urgency-dot"></span>
@@ -877,20 +863,6 @@ ul{list-style:none}
     });
   }
 
-  /* === PROCESS LINE === */
-  var processWrap = document.getElementById('processWrap');
-  if (processWrap && 'IntersectionObserver' in window) {
-    var procObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          procObs.disconnect();
-        }
-      });
-    }, { threshold: 0.25 });
-    procObs.observe(processWrap);
-  }
-
   /* === FAQ === */
   document.querySelectorAll('.faq-q').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -1016,11 +988,29 @@ ul{list-style:none}
       document.querySelectorAll('.reveal, .hero-line').forEach(function (el) {
         el.style.opacity = '1';
       });
+      var lineGrowFallback = document.querySelector('.process-line-grow');
+      if (lineGrowFallback) lineGrowFallback.style.height = '100%';
       return;
     }
 
     if (typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
+    }
+
+    var processWrap = document.getElementById('processWrap');
+    var lineGrow = processWrap && processWrap.querySelector('.process-line-grow');
+    if (processWrap && lineGrow && typeof ScrollTrigger !== 'undefined') {
+      gsap.set(lineGrow, { height: '0%' });
+      gsap.to(lineGrow, {
+        height: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: processWrap,
+          start: 'top 78%',
+          end: 'bottom 55%',
+          scrub: 0.35
+        }
+      });
     }
 
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
